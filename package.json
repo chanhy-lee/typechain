@@ -1,0 +1,13 @@
+{
+  "name": "typechain",
+  "version": "1.0.0",
+  "description": "A blockchain made with TypeScript",
+  "main": "index.js",
+  "repository": "https://github.com/chanhy-lee/typechain.git",
+  "author": "Chan-hyeong Lee <dannychh@khu.ac.kr>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "tsc"
+  }
+}
