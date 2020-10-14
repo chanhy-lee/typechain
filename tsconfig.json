@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
-        "module": "CommonJS", // It makes us to use node.js normally
-        "target": "ES2015", // Compiling version of JavaScript
-        "sourceMap": true
+        "module": "commonjs",
+        "target": "ES2015",
+        "sourceMap": true,
+        "outDir": "dist"
     },
-    "include": ["index.ts"],
-    "exclude": ["node_modules"] // By default
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }
