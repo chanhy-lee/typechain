@@ -3,10 +3,10 @@ import { createNew } from 'typescript';
 
 class Block { // Create 'Block' structure.
     static calculateBlockHash = (
-        index: number,
-        previousHash: string,
-        timestamp: number,
-        data: string
+            index: number,
+            previousHash: string,
+            timestamp: number,
+            data: string
         ): string => { // 'static' allows us to use method without making a 'Block'.
         return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
     };
@@ -28,11 +28,11 @@ class Block { // Create 'Block' structure.
     public timestamp: number;
 
     constructor(
-        index: number,
-        hash: string,
-        previousHash: string,
-        data: string,
-        timestamp: number
+            index: number,
+            hash: string,
+            previousHash: string,
+            data: string,
+            timestamp: number
         ) {
         this.index = index;
         this.hash = hash;
@@ -104,6 +104,16 @@ const addBlock = (candidateBlock: Block): void => {
 createNewBlock("Hello");
 createNewBlock("Bye");
 
-console.log(getBlockchain());
+const finalBlockChain: Block[] = getBlockchain();
+
+console.log(finalBlockChain);
+
+for (let i: number = 1; i < finalBlockChain.length; i++) {
+    if (isBlockValid(finalBlockChain[i], finalBlockChain[i - 1])) {
+        console.log(`Block[${i}] is valid.`);
+    } else {
+        console.log(`Block[${i}] is invalid.`);
+    }
+}
 
 export{};
