@@ -1,5 +1,4 @@
 import * as CryptoJS from 'crypto-js';
-import { createNew } from 'typescript';
 
 class Block { // Create 'Block' structure.
     static calculateBlockHash = (
@@ -42,7 +41,11 @@ class Block { // Create 'Block' structure.
     }
 }
 
-const genesisBlock: Block = new Block(0, "2020", "", "First block", Math.round(new Date().getTime())); // First block.
+const getNewTimeStamp = (): number => {
+    return Math.round(new Date().getTime());
+};
+
+const genesisBlock: Block = new Block(0, "2020", "", "First block", getNewTimeStamp()); // First block.
 
 let blockchain: Block[] = [genesisBlock];
 
@@ -52,10 +55,6 @@ const getBlockchain = (): Block[] => {
 
 const getLatestBlock = (): Block => {
     return blockchain[blockchain.length - 1];
-};
-
-const getNewTimeStamp = (): number => {
-    return Math.round(new Date().getTime());
 };
 
 const createNewBlock = (data: string): Block => {
