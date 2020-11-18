@@ -1,12 +1,14 @@
 import * as CryptoJS from 'crypto-js';
 
 class Block { // Create 'Block' structure.
+    // 'static' allows us to use method without making a 'Block'.
+    // Which means that we can use the method as normal function.
     static calculateBlockHash = (
             index: number,
             previousHash: string,
             timestamp: number,
             data: string
-        ): string => { // 'static' allows us to use method without making a 'Block'.
+        ): string => {
         return CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
     };
 
